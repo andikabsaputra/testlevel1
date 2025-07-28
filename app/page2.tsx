@@ -38,16 +38,52 @@ export default function Home() {
 
                <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/newpage"
+          href="https://techmayantara.co.id/"
           target="_blank"
           rel="noopener noreferrer"
         >
-         
-          Click here
+          <Image
+            aria-hidden
+            src="https://techmayantara.co.id/logoTma-biggerLogo.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          PT Tech Mayantara Asia
         </a>
-            </article>
+        </article>
+          </section>
+        </article>
 
-            
+        <article id="projects">
+          <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
+          <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <article className="rounded-lg bg-gray-600 p-6 text-gray-300">
+              <h3 className="mb-2 text-xl font-semibold">Project 1</h3>
+              <p className="text-gray-300">
+                API hits
+              </p>
+
+              {/* <a target="_blank" href="https://twitter.com/" rel="noopener noreferrer">
+                  <div className={`${dark ? styles.iconTwitterWhite : styles.iconTwitter} mr-3`} />
+              </a> */}
+
+               <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://techmayantara.co.id/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="https://techmayantara.co.id/logoTma-biggerLogo.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          PT Tech Mayantara Asia
+        </a>
+        </article>
           </section>
         </article>
         <article id="contact">

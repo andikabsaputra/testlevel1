@@ -1,35 +1,46 @@
+"use client"
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+
+
 
 export default function Home() {
+
+    const [joke,setJoke] = useState<{id:number,punchline:string,setup:string,type:string} | null >(null) 
+
+  useEffect(() => {
+    async function fetchCountries() {
+          try {
+              const response = await fetch('https://official-joke-api.appspot.com/random_joke');
+              const data = await response.json();
+              setJoke(data);
+          } catch (error) {
+              console.error('Error fetching countries data:', error);
+          }
+      }
+
+    fetchCountries();
+  }, []);
+
+
   return (
+    
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://techmayantara.co.id/logoTma-biggerLogo.svg"
-          width={180}
-          height={38}
-          priority alt={""}        />
-        
-        
+    
         <section className="mx-auto flex max-w-4xl flex-col gap-12 px-6">
-        <article className="text-center">
-          <h1 className="text-4xl font-bold">Andika Bayus</h1>
-          <p className="text-lg">Web Developer</p>
-        </article>
-        <article id="about">
-          <h2 className="mb-4 text-2xl font-semibold">About Me</h2>
-          <p>
-            Hallo, &apos;Perkenalkan saya Andika bekerja di sebuah perusahan PT Tech mayantara Asia yang beralamatkan di sumarecon bandung.
-          </p>
-        </article>
         <article id="projects">
-          <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
+          <h2 className="mb-4 text-2xl font-semibold">Hit API</h2>
           <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <article className="rounded-lg bg-gray-600 p-6 text-gray-300">
               <h3 className="mb-2 text-xl font-semibold">Project 1</h3>
+              
               <p className="text-gray-300">
-                API hits
+                {joke?.setup}   
+              </p>
+              <p className="text-gray-300">
+                {joke?.punchline}   
               </p>
 
               {/* <a target="_blank" href="https://twitter.com/" rel="noopener noreferrer">
@@ -38,30 +49,14 @@ export default function Home() {
 
                <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/newpage"
+          href="https://techmayantara.co.id/"
           target="_blank"
           rel="noopener noreferrer"
         >
-         
-          Click here
+          
         </a>
-            </article>
-
-            
-          </section>
         </article>
-        <article id="contact">
-          <h2 className="mb-4 text-2xl font-semibold">Contact</h2>
-          <p>
-            Feel free to reach out to me at{" "}
-            <a
-              href="andikabayus@tma.web.id"
-              className="text-blue-700 hover:underline"
-            >
-              andikabayus@tma.web.id
-            </a>
-            .
-          </p>
+          </section>
         </article>
       </section>
 
